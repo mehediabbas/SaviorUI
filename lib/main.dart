@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:savior/app_colors.dart';
 import 'package:savior/emergency_page.dart';
 import 'package:savior/home_page.dart';
@@ -44,10 +45,23 @@ class BottomNavScreenState extends State<BottomNavScreen>{
     });
   }
 
+  PreferredSizeWidget blankAppBar() {
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(20),
+      child: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: null,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
+      ),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
-
+      appBar: blankAppBar(),
       body: pages[SelectedPage],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: SelectedPage,

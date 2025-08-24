@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:savior/app_colors.dart';
 import 'package:savior/app_typography.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class EmergencyPage extends StatelessWidget{
   @override
@@ -10,7 +11,6 @@ class EmergencyPage extends StatelessWidget{
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            SizedBox(height: 20,),
             SizedBox(
               height: 70,
               child: Row(
@@ -27,7 +27,7 @@ class EmergencyPage extends StatelessWidget{
               icon: Icons.local_hospital,
               text: "Nearest Hospital",
               onPressed: () {
-                print("Calling Hospital...");
+                launch('tel://''0000000');
               },
             ),
             SizedBox(height: 10,),
@@ -35,7 +35,7 @@ class EmergencyPage extends StatelessWidget{
               icon: Icons.local_police,
               text: "Nearest Police Station",
               onPressed: () {
-                print("Calling Police Station...");
+                launch('tel://''0000000');
               },
             ),
             SizedBox(height: 10,),
@@ -43,7 +43,7 @@ class EmergencyPage extends StatelessWidget{
               icon: Icons.car_crash_sharp,
               text: "Nearest Ambulance",
               onPressed: () {
-                print("Calling Ambulance...");
+                launch('tel://''0000000');
               },
             ),
             SizedBox(height: 10,),
@@ -51,7 +51,7 @@ class EmergencyPage extends StatelessWidget{
               icon: Icons.emergency,
               text: "Call 999",
               onPressed: () {
-                print("Calling 999...");
+                launch('tel://''999');
               },
             ),
 
@@ -81,7 +81,7 @@ class Emergencys extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 300,  // fixed width এখানে দিন
+      width: 300,
       child: OutlinedButton.icon(
         onPressed: onPressed,
         icon: Icon(
